@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Dispositivos',
-      url: '/folder/Dispositivos',
+      url: '/Dispositivos',
       icon: 'wifi'
     },
     {
