@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'Dispositivos',
     loadChildren: () => import('./dispositivos/dispositivos.module').then( m => m.DispositivosPageModule)
+  },
+  {
+    path: 'TiendaOnline',
+    loadChildren: () => import('./tiendaonline/tiendaonline.module').then( m => m.TiendaonlinePageModule)
   }
 ];
 

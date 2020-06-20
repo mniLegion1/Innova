@@ -14,24 +14,19 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Perfil',
-      url: '/folder/Perfil',
-      icon: 'person'
-    },
-    {
-      title: 'Dispositivos',
+      title: 'Control remoto',
       url: '/Dispositivos',
       icon: 'wifi'
     },
     {
-      title: 'Historial',
-      url: '/folder/Historial',
-      icon: 'reader'
+      title: 'Búsqueda CG',
+      url: '/folder/BusquedaCG',
+      icon: 'analytics'
     },
     {
-      title: 'Tienda on-line',
-      url: '/folder/Tienda Online',
-      icon: 'cart'
+      title: 'Nuestros socios',
+      url: '/TiendaOnline',
+      icon: 'trail-sign'
     },
     {
       title: 'Ayuda',

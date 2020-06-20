@@ -5,6 +5,9 @@
         <ion-list id="inbox-list">
           <!--<ion-list-header>Inbox</ion-list-header>-->
           <!--<ion-note>hi@ionicframework.com</ion-note>-->
+          <ion-card class="welcome-card">
+          <img src = "https://66.media.tumblr.com/59e578ad7dad44b02c435c1e49567464/88fbfb6a14773a7a-ac/s400x600/5d5b9ea14db2b3c1b98daa9c6340f510d03c205d.png" alt=""/>
+        </ion-card>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
