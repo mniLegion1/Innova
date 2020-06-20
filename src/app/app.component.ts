@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Control remoto',
-      url: '/Dispositivos',
+      url: '/control-remoto',
       icon: 'wifi'
     },
     {

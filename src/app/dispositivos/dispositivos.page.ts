@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertController} from '@ionic/angular';
+import { AlertController, LoadingController} from '@ionic/angular';
 import { Location } from "@angular/common";
 
 @Component({
@@ -11,37 +11,23 @@ import { Location } from "@angular/common";
 export class DispositivosPage implements OnInit {
 
   constructor(private location:Location, private acRoute:ActivatedRoute, public alertController: AlertController,
-    private router:Router) { }
+    private router:Router, public loadingController: LoadingController ) { }
 
   ngOnInit() {
+    this.presentLoading()
+    
   }
-
-  myBackButton(){
-    this.location.back();
-    console.log(this.location)
-  }
-
-  async presentAlertConfirm() {
-    const alert = await this.alertController.create({
-      header: 'Ingreso de registro del pariente',
-      message: 'Se cancelará el registro del pariente. ¿Desea continuar?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Confirmar',
-          handler: () => {
-            this.myBackButton()
-          }
-        }
-      ]
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Buscando dispositivos...',
+      duration: 5000
     });
-    await alert.present();
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
+
 
 }

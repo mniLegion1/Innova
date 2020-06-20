@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Home',
+    redirectTo: 'control-remoto',
     pathMatch: 'full'
   },
   {
@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'TiendaOnline',
     loadChildren: () => import('./tiendaonline/tiendaonline.module').then( m => m.TiendaonlinePageModule)
+  },
+  {
+    path: 'control-remoto',
+    loadChildren: () => import('./control-remoto/control-remoto.module').then( m => m.ControlRemotoPageModule)
   }
+
 ];
 
 @NgModule({
