@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'Dispositivos',
+    path: 'BusquedaCG',
     loadChildren: () => import('./dispositivos/dispositivos.module').then( m => m.DispositivosPageModule)
   },
   {

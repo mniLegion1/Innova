@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Búsqueda CG',
-      url: '/folder/BusquedaCG',
+      url: '/BusquedaCG',
       icon: 'analytics'
     },
     {
