@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Ayuda',
-      url: '/folder/Ayuda',
+      url: '/Ayuda',
       icon: 'help'
     }
   ];

@@ -22,8 +22,11 @@ const routes: Routes = [
   {
     path: 'control-remoto',
     loadChildren: () => import('./control-remoto/control-remoto.module').then( m => m.ControlRemotoPageModule)
+  },
+  {
+    path: 'Ayuda',
+    loadChildren: () => import('./ayuda/ayuda.module').then( m => m.AyudaPageModule)
   }
-
 ];
 
 @NgModule({

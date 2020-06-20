@@ -14,21 +14,24 @@ export class ControlRemotoPage implements OnInit {
   ngOnInit() {
     this.presentAlertConfirm()
   }
+  
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'CG Remote Control',
+      message: 'Para usar la aplicación, tu smartphone debe estar conectado a un dispositivo CG.',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Configuracion de la App',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
+            this.route.navigateByUrl("/Ayuda");
             console.log('Confirm Cancel: blah');
+
           }
         }, {
-          text: 'Okay',
+          text: 'Buscar otro dispositivo CG',
           handler: () => {
             this.route.navigateByUrl("/BusquedaCG"); 
             console.log('Confirm Okay');

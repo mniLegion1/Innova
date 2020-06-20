@@ -20,7 +20,9 @@ export class DispositivosPage implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
+      translucent: true,
       message: 'Buscando dispositivos...',
+      backdropDismiss: true,
       duration: 5000
     });
     await loading.present();
