@@ -17,8 +17,14 @@
       </ion-label>
     </ion-item-divider>
   </ion-list>
+  <ion-list *ngFor="let d of dispositivos"  >
+    <ion-button   expand="full" color="danger"   (click)="conectar(d)">{{d}}</ion-button>
+    
   
-  <ion-button class="your-class" expand="full" color="danger"  (click)="presentLoading()">Buscar</ion-button>
+  </ion-list>
+  <ion-button *ngIf="estado==0" class="your-class" expand="full" color="danger"  (click)="presentLoading()">Buscar</ion-button>
+  <ion-button *ngIf="estado==1" class="your-class" expand="full" color="danger"  (click)="desconectar()">Desconectar</ion-button>
+  
 
   
 

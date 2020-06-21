@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-control-remoto',
@@ -8,13 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./control-remoto.page.scss'],
 })
 export class ControlRemotoPage implements OnInit {
+  estado: any
+  filtro:any
+  impermeable:any
+  constructor(public alertController: AlertController, private route: Router, private storage: Storage, public loadingController: LoadingController) {
 
-  constructor(public alertController: AlertController, private route:Router) { }
+  }
 
   ngOnInit() {
-    this.presentAlertConfirm()
+    
+    
+    this.storage.get('primeraBusqueda').then((val) => {
+      console.log('Estado', val);
+      this.estado=val
+      if (val == 0) {
+        this.presentAlertConfirm()
+      }
+    });
+    this.storage.get('filtro').then((val) => {
+      if(val==true)this.filtro=val;
+      else this.filtro=false;
+      
+    });
+    this.storage.get('impermeable').then((val) => {
+      if(val==true)this.impermeable=val;
+      else this.impermeable=false;
+    });
+
   }
-  
+
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -33,7 +56,7 @@ export class ControlRemotoPage implements OnInit {
         }, {
           text: 'Buscar otro dispositivo CG',
           handler: () => {
-            this.route.navigateByUrl("/BusquedaCG"); 
+            this.route.navigateByUrl("/BusquedaCG");
             console.log('Confirm Okay');
           }
         }
@@ -42,4 +65,49 @@ export class ControlRemotoPage implements OnInit {
 
     await alert.present();
   }
+  toggle1(){
+      
+      this.impermeable= !this.impermeable
+      this.storage.set('impermeable', this.impermeable);
+      if(this.impermeable==true)this.AbrirLoading("Cortina impermeable")
+      else this.CerrarLoading("Cortina impermeable")
+  }
+  toggle2(){
+   
+    this.filtro= !this.filtro
+    this.storage.set('filtro', this.filtro);
+    if(this.filtro==true)this.AbrirLoading("Cortina filtro UV")
+    else this.CerrarLoading("Cortina filtro UV")
+}
+async AbrirLoading(puerta) {
+  const loading = await this.loadingController.create({
+    cssClass: 'my-custom-class',
+    translucent: true,
+    message: 'Abriendo ... ' + puerta,
+    backdropDismiss: true,
+    duration: 5000
+  });
+  await loading.present();
+
+  const { role, data } = await loading.onDidDismiss();
+  console.log('Loading dismissed!');
+  this.storage.set('primeraBusqueda', 1);
+  this.estado=1
+}
+async CerrarLoading(puerta) {
+  const loading = await this.loadingController.create({
+    cssClass: 'my-custom-class',
+    translucent: true,
+    message: 'Cerrando ... ' + puerta,
+    backdropDismiss: true,
+    duration: 5000
+  });
+  await loading.present();
+
+  const { role, data } = await loading.onDidDismiss();
+  console.log('Loading dismissed!');
+  this.storage.set('primeraBusqueda', 1);
+  this.estado=1
+}
+  
 }

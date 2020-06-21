@@ -9,5 +9,27 @@
 
 
 <ion-content >
+  
+  <ion-toolbar *ngIf="estado==1" color="danger">
+    <ion-subtitle> &nbsp; (CG) webOS CL IN9203</ion-subtitle>
+  </ion-toolbar>
+  
+  <ion-list>
 
+
+    <ion-item>
+      <ion-label>Cortina impermeable</ion-label>
+      <ion-toggle color="secondary" checked="false" (ionChange)="toggle1()" ></ion-toggle>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Cortina filtro UV</ion-label>
+      <ion-toggle color="dark" checked="false" (ionChange)="toggle2()" ></ion-toggle>
+    </ion-item>
+
+ 
+
+
+  </ion-list>
 </ion-content>
