@@ -15,6 +15,7 @@ export class DispositivosPage implements OnInit {
   dispositivos:any
   date
   a
+  value
   constructor(private location:Location, private acRoute:ActivatedRoute, public alertController: AlertController,
     private router:Router, public loadingController: LoadingController,private storage: Storage ) { }
 
@@ -26,7 +27,7 @@ export class DispositivosPage implements OnInit {
         this.presentLoading()
       }else if (this.estado==1){
         this.dispositivos=[
-          "(CG) webOS CL IN9203 192.168.0.8 CONECTADO",
+          this.value + " CONECTADO",
          
         ]
       }
@@ -48,7 +49,7 @@ export class DispositivosPage implements OnInit {
     this.storage.set('primeraBusqueda', 1);
     // this.estado=1
     this.dispositivos=[
-      "(CG) webOS CL IN9203 192.168.0.8"
+      "(CG) webOS CL IN9203 192.168.0.8","(CG) webOS CL IN8503 192.168.0.5","(CG) webOS CL IN9303 192.168.0.3"
     ]
   }
 
@@ -72,7 +73,7 @@ export class DispositivosPage implements OnInit {
     this.storage.set('primeraBusqueda', 1);
     this.estado=1
     this.dispositivos=[
-      "(CG) webOS CL IN9203 192.168.0.8 CONECTADO",
+      value + " CONECTADO",
      
     ]
 
@@ -93,7 +94,7 @@ export class DispositivosPage implements OnInit {
     this.storage.set('primeraBusqueda', 0);
     this.estado=0
     this.dispositivos=[
-      "(CG) webOS CL IN9203 192.168.0.8"
+      "(CG) webOS CL IN9203 192.168.0.8","(CG) webOS CL IN8503 192.168.0.5","(CG) webOS CL IN9303 192.168.0.3"
     ]
   }
   desconectar(){
