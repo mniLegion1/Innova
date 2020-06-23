@@ -10,8 +10,11 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./dispositivos.page.scss'],
 })
 export class DispositivosPage implements OnInit {
+  myDate: String = new Date().toISOString();
   estado:any;
   dispositivos:any
+  date
+  a
   constructor(private location:Location, private acRoute:ActivatedRoute, public alertController: AlertController,
     private router:Router, public loadingController: LoadingController,private storage: Storage ) { }
 
@@ -50,6 +53,11 @@ export class DispositivosPage implements OnInit {
   }
 
   async conectar(value) {
+    this.myDate = new Date().toISOString();
+    console.log(this.myDate)
+    this.a = this.myDate.split('T');
+    this.myDate = this.a[1].split('.');
+    console.log(this.myDate[0]);
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       translucent: true,
@@ -67,6 +75,8 @@ export class DispositivosPage implements OnInit {
       "(CG) webOS CL IN9203 192.168.0.8 CONECTADO",
      
     ]
+
+    this.router.navigateByUrl('/control-remoto')
   }
   async Desconect() {
     const loading = await this.loadingController.create({
@@ -101,6 +111,27 @@ export class DispositivosPage implements OnInit {
           return 'orange';
         }
       
+  }
+
+  async Info() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '(CG) webOS CL IN9203',
+      message: 'Conectado por última vez a las: ' + this.myDate[0],
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Accept: blah');
+
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }

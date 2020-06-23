@@ -1,0 +1,65 @@
+<div [ngSwitch]="opc">
+
+<!--(1)Reportar un problema-->
+<div *ngSwitchCase="1">
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="Ayuda"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reportar un problema</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item>
+  <ion-label></ion-label>
+  <ion-input [(ngModel)]="correo" autofocus placeholder="Correo electrónico"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label></ion-label>
+  <ion-textarea [(ngModel)]="problema" autoGrow autofocus placeholder="Cuéntanos en detalle tu problema"></ion-textarea>
+</ion-item>
+
+<div id="header">
+<h6 >Por favor cuéntanos tu error con CG App Remote Control y dejanos tu correo electrónico y nuestro equipo te contactará lo antes posible. Todos nuestros reportes están sujetos a nuestros Términos de Uso</h6>
+
+<ion-button class="your-class" expand="full" color="danger"  (click)="Enviar(correo,problema)">Enviar</ion-button>
+
+</div>
+
+</div>
+
+<!--(2)Términos de uso-->
+<div *ngSwitchCase="2">
+
+  <ion-header [translucent]="true">
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="Ayuda"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Términos de uso</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-grid>
+    <ion-row>
+      <img src = "https://66.media.tumblr.com/59e578ad7dad44b02c435c1e49567464/88fbfb6a14773a7a-ac/s400x600/5d5b9ea14db2b3c1b98daa9c6340f510d03c205d.png" alt="" height='60' width='250' />
+    </ion-row>
+    <ion-row>
+      <h4>&nbsp; Términos de uso</h4>
+    </ion-row>
+    <ion-row>
+      <div id="header">
+        <h6 >Bienvenido a CG App Control Remote!</h6>
+        <h6>Estos Términos de Uso rigen el uso de CG App Remote Control y proveen información sobre el servicio de ClotGuard, que se resume más abajo. Cuando ingresas a la aplicación aceptas estos términos.</h6>
+        <h6>CG App Remote Control es un producto de ClotGuard, provisto por ClotGuard Inc. Estos Términos de Uso constituyen un acuerdo en tú y ClotGuard Inc. </h6>
+      </div>
+    </ion-row>
+  </ion-grid>
+    
+  
+  </div>
+
+</div>

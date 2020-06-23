@@ -26,7 +26,12 @@ const routes: Routes = [
   {
     path: 'Ayuda',
     loadChildren: () => import('./ayuda/ayuda.module').then( m => m.AyudaPageModule)
+  },
+  {
+    path: 'Ayuda-dos/:opc',
+    loadChildren: () => import('./ayuda-dos/ayuda-dos.module').then( m => m.AyudaDosPageModule)
   }
+
 ];
 
 @NgModule({

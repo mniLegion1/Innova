@@ -10,6 +10,7 @@
 <ion-content [fullscreen]="true">
   
   <!-- Item Dividers in a List -->
+  <div *ngIf="estado==0">
   <ion-list>
     <ion-item-divider>
       <ion-label>
@@ -17,9 +18,26 @@
       </ion-label>
     </ion-item-divider>
   </ion-list>
+    <!--<ion-button expand="full" color="danger"   (click)="conectar(d)">{{d}}</ion-button> -->
+  </div>
   <ion-list *ngFor="let d of dispositivos"  >
-    <ion-button   expand="full" color="danger"   (click)="conectar(d)">{{d}}</ion-button>
-    
+    <!--<ion-button expand="full" color="danger"   (click)="conectar(d)">{{d}}</ion-button> -->
+
+    <div *ngIf="estado==0">
+      <ion-card color="danger" button (click)="conectar(d)">
+        <ion-card-header>
+          <ion-card-title>{{d}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <div *ngIf="estado==1" button (click)="Info()">
+      <ion-card color = "danger" >
+        <ion-card-header>
+          <ion-card-title>{{d}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
   
   </ion-list>
   <ion-button *ngIf="estado==0" class="your-class" expand="full" color="danger"  (click)="presentLoading()">Buscar</ion-button>

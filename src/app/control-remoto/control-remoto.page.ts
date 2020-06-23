@@ -18,7 +18,6 @@ export class ControlRemotoPage implements OnInit {
 
   ngOnInit() {
     
-    
     this.storage.get('primeraBusqueda').then((val) => {
       console.log('Estado', val);
       this.estado=val
@@ -27,13 +26,17 @@ export class ControlRemotoPage implements OnInit {
       }
     });
     this.storage.get('filtro').then((val) => {
-      if(val==true)this.filtro=val;
-      else this.filtro=false;
+      if(val==true)
+        this.filtro=val;
+      else
+        this.filtro=false;
       
     });
     this.storage.get('impermeable').then((val) => {
-      if(val==true)this.impermeable=val;
-      else this.impermeable=false;
+      if(val==true)
+        this.impermeable=val;
+      else
+        this.impermeable=false;
     });
 
   }
@@ -69,21 +72,25 @@ export class ControlRemotoPage implements OnInit {
       
       this.impermeable= !this.impermeable
       this.storage.set('impermeable', this.impermeable);
-      if(this.impermeable==true)this.AbrirLoading("Cortina impermeable")
-      else this.CerrarLoading("Cortina impermeable")
+      if(this.impermeable==true)
+        this.AbrirLoading("Cortina impermeable")
+      else 
+        this.CerrarLoading("Cortina impermeable")
   }
   toggle2(){
    
     this.filtro= !this.filtro
     this.storage.set('filtro', this.filtro);
-    if(this.filtro==true)this.AbrirLoading("Cortina filtro UV")
-    else this.CerrarLoading("Cortina filtro UV")
+    if(this.filtro==true)
+      this.AbrirLoading("Cortina filtro UV")
+    else 
+      this.CerrarLoading("Cortina filtro UV")
 }
 async AbrirLoading(puerta) {
   const loading = await this.loadingController.create({
     cssClass: 'my-custom-class',
     translucent: true,
-    message: 'Abriendo ... ' + puerta,
+    message: 'Abriendo... ' + puerta,
     backdropDismiss: true,
     duration: 5000
   });
@@ -94,11 +101,12 @@ async AbrirLoading(puerta) {
   this.storage.set('primeraBusqueda', 1);
   this.estado=1
 }
+
 async CerrarLoading(puerta) {
   const loading = await this.loadingController.create({
     cssClass: 'my-custom-class',
     translucent: true,
-    message: 'Cerrando ... ' + puerta,
+    message: 'Cerrando... ' + puerta,
     backdropDismiss: true,
     duration: 5000
   });

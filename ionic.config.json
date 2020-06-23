@@ -1,5 +1,7 @@
 {
   "name": "ClotGuard",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

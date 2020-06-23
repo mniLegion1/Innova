@@ -16,17 +16,35 @@
   
   <ion-list>
 
-
+    <ion-card>
     <ion-item>
       <ion-label>Cortina impermeable</ion-label>
       <ion-toggle color="secondary" checked="false" (ionChange)="toggle1()" ></ion-toggle>
     </ion-item>
 
+    <div *ngIf="impermeable">
+        <h6>Estado: ABIERTO</h6>
+    </div>
+    <div *ngIf="!impermeable">
+      <h6>Estado: CERRADO</h6>
+    </div> 
+    
+  </ion-card>
 
+  <ion-card>
     <ion-item>
       <ion-label>Cortina filtro UV</ion-label>
-      <ion-toggle color="dark" checked="false" (ionChange)="toggle2()" ></ion-toggle>
+      <ion-toggle color="secondary" checked="false" (ionChange)="toggle2()" ></ion-toggle>
     </ion-item>
+
+    <div *ngIf="filtro">
+      <h6>Estado: ABIERTO</h6>
+  </div>
+  <div *ngIf="!filtro">
+    <h6>Estado: CERRADO</h6>
+  </div> 
+    
+  </ion-card>
 
  
 

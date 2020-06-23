@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-ayuda',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ayuda.page.scss'],
 })
 export class AyudaPage implements OnInit {
+  opc:number
 
-  constructor() { }
+  constructor(private location:Location, private acRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
+  }
+
+  async Ayudados(opc:number){
+    this.router.navigate(['Ayuda-dos',opc])
   }
 
 }
