@@ -12,14 +12,14 @@ import { Storage } from '@ionic/storage';
 export class DispositivosPage implements OnInit {
   myDate: String = new Date().toISOString();
   estado:any;
-  dispositivos:any
-  date
+  dispositivos:any;
   a
   value
   constructor(private location:Location, private acRoute:ActivatedRoute, public alertController: AlertController,
     private router:Router, public loadingController: LoadingController,private storage: Storage ) { }
 
   ngOnInit() {
+    this.storage.set('primeraBusqueda', 0);
     this.storage.get('primeraBusqueda').then((val) => {
       console.log('Estado', val);
       this.estado=val
