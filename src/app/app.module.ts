@@ -5,10 +5,11 @@ import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { ApiService } from './api/api.service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,10 +18,15 @@ import { IonicStorageModule } from '@ionic/storage';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    AppRoutingModule,
+    HttpClientModule,
     IonicStorageModule.forRoot()
     
   ],
   providers: [
+    AppRoutingModule,
+    HttpClientModule,
+    ApiService,
     Geolocation,
     StatusBar,
     SplashScreen,

@@ -1,5 +1,10 @@
 {
   "name": "ClotGuard",
+  "app_id": "",
+  "proxies": [{
+      "path": "/v1",
+      "proxyUrl": "http://api.weatherapi.com/v1/"}
+  ],
   "integrations": {
     "cordova": {}
   },
