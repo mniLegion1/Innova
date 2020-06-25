@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, IonicModule } from '@ionic/angular';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
       title: 'Búsqueda CG',
       url: '/BusquedaCG',
       icon: 'analytics'
+    },
+    {
+      title: 'Pronóstico del tiempo',
+      url: '/Tiempo',
+      icon: 'cloudy'
     },
     {
       title: 'Nuestros socios',

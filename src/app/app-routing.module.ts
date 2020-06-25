@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'Ayuda-dos/:opc',
     loadChildren: () => import('./ayuda-dos/ayuda-dos.module').then( m => m.AyudaDosPageModule)
+  },
+  {
+    path: 'Tiempo',
+    loadChildren: () => import('./tiempo/tiempo.module').then( m => m.TiempoPageModule)
   }
+
 
 ];
 
