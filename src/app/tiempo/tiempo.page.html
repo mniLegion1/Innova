@@ -11,19 +11,18 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let tiempo of tiempo">
+  <div>
     <ion-card color="danger">
     <ion-card-header>
-      <ion-card-title>{{tiempo.location.name}}</ion-card-title>
-      <img src = "{{tiempo.current.condition.icon}}" alt=""/>
+      <ion-card-title>{{place}}</ion-card-title>
+      <h2>{{tempo}}<img src = "{{icon}}" alt=""/></h2>
     </ion-card-header>
 
     <ion-card-content>
       Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content>
+    <h3>{{log}}</h3>
   </ion-card>
-  {{tiempo.location.name}}
-  <img src = "{{tiempo.current.condition.icon}}" alt=""/>
 </div>
 </ion-content>

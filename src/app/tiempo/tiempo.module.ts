@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,8 +15,10 @@ import { TiempoPage } from './tiempo.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    TiempoPageRoutingModule
+    TiempoPageRoutingModule,
+    HttpClientModule
   ],
+  providers:[Geolocation],
   declarations: [TiempoPage]
 })
 export class TiempoPageModule {}
