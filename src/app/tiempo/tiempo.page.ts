@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ApiService } from '../api/api.service.service'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tiempo',
@@ -10,7 +11,7 @@ import { ApiService } from '../api/api.service.service'
 export class TiempoPage implements OnInit {
   tiempo = new Array()
 
-  constructor(private geolocation: Geolocation, private api:ApiService) { }
+  constructor(private router:Router, private geolocation: Geolocation, private api:ApiService) { }
 
   ngOnInit() {
     this.geolocation.getCurrentPosition().then((resp) => {
@@ -20,9 +21,6 @@ export class TiempoPage implements OnInit {
       this.api.Tiempo(resp.coords.latitude, resp.coords.longitude).subscribe(tiempos =>{
         this.tiempo[0] = tiempos
         console.log(this.tiempo[0])
-        console.log(this.tiempo[0].current)
-        console.log(this.tiempo[0].current.temp_c)
-        console.log(this.tiempo[0].location)
       },error=>{
         console.log("Error getting data")
       });
@@ -30,19 +28,19 @@ export class TiempoPage implements OnInit {
        console.log('Error getting location', error);
      });
 
-     /*let watch = this.geolocation.watchPosition();
+     let watch = this.geolocation.watchPosition();
      watch.subscribe((data) => {
       // data can be a set of coordinates, or an error (if an error occurred).
       // data.coords.latitude
       // data.coords.longitude
 
-      console.log(data)
-     });*/
+      //console.log(data)
+     });
     
   }
 
-Geo(){
-  
+Reload(){
+  this.router.navigateByUrl('/Tiempo');
 }
   
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, IonicModule } from '@ionic/angular';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -11,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  suscribe:any
   public selectedIndex = 0;
   public appPages = [
     {
@@ -48,6 +48,14 @@ export class AppComponent implements OnInit {
     private menu: MenuController
   ) {
     this.initializeApp();
+
+    this.suscribe = this.platform.backButton.subscribeWithPriority(666666,() => {
+      if(this.constructor.name == "AppComponent"){
+        if(window.confirm("Presione de nuevo para salir de la aplicación")){
+          navigator["app"].exitApp();
+        }
+      }
+    })
   }
 
   initializeApp() {
@@ -78,7 +86,4 @@ export class AppComponent implements OnInit {
     this.menu.open('custom');
   }
 
-  async run(){
-    var URL = "C:\Users\IronLich\Documents\ClotGuard\src\assets\Logo1.jpg"
-  }
 }
