@@ -1,48 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="danger">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Control remoto</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Control remoto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content >
-  
+<ion-content>
+
   <ion-list>
 
-    <ion-card>
-    <ion-item>
-      <ion-label>Cortina impermeable</ion-label>
-      <ion-toggle color="secondary" checked="false" (ionChange)="toggle1()" ></ion-toggle>
-    </ion-item>
+      <ion-card>
+          <ion-item>
+              <ion-label>Cortina impermeable</ion-label>
+              <ion-toggle color="secondary" checked="{{impermeable}}" (ionFocus)="toggle1()"></ion-toggle>
+          </ion-item>
 
-    <div *ngIf="impermeable">
-        <h6>Estado: ABIERTO</h6>
-    </div>
-    <div *ngIf="!impermeable">
-      <h6>Estado: CERRADO</h6>
-    </div> 
-    
-  </ion-card>
+          <div *ngIf="impermeable == true">
+              <h6>&nbsp; &nbsp;Estado: ABIERTO</h6>
+          </div>
+          <div *ngIf="impermeable == false">
+              <h6>&nbsp; &nbsp;Estado: CERRADO</h6>
+          </div>
 
-  <ion-card>
-    <ion-item>
-      <ion-label>Cortina filtro UV</ion-label>
-      <ion-toggle color="secondary" checked="false" (ionChange)="toggle2()" ></ion-toggle>
-    </ion-item>
+      </ion-card>
 
-    <div *ngIf="filtro">
-      <h6>Estado: ABIERTO</h6>
-  </div>
-  <div *ngIf="!filtro">
-    <h6>Estado: CERRADO</h6>
-  </div> 
-    
-  </ion-card>
+      <ion-card>
+          <ion-item>
+              <ion-label>Cortina filtro UV</ion-label>
+              <ion-toggle color="secondary" checked="{{filtro}}" (ionFocus)="toggle2()"></ion-toggle>
+          </ion-item>
 
- 
+          <div *ngIf="filtro">
+              <h6>&nbsp; &nbsp;Estado: ABIERTO</h6>
+          </div>
+          <div *ngIf="!filtro">
+              <h6>&nbsp; &nbsp;Estado: CERRADO</h6>
+          </div>
+
+      </ion-card>
 
 
   </ion-list>
